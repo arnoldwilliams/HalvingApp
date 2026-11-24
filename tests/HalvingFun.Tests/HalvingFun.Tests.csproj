@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsPackable>false</IsPackable>
+        <RootNamespace>HalvingFun.Tests</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Maui.Graphics.Skia" Version="10.0.0" />
+        <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="3.116.1" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+        <PackageReference Include="xunit" Version="2.9.2" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+    </ItemGroup>
+
+    <!-- The answer checking and layout maths are platform neutral, so the tests
+         compile the same source files the app uses instead of duplicating them. -->
+    <ItemGroup>
+        <Compile Include="../../src/Models/StrokeGeometry.cs" Link="App/StrokeGeometry.cs" />
+        <Compile Include="../../src/Models/InkStroke.cs" Link="App/InkStroke.cs" />
+        <Compile Include="../../src/Models/PenColour.cs" Link="App/PenColour.cs" />
+        <Compile Include="../../src/Models/FoodItem.cs" Link="App/FoodItem.cs" />
+        <Compile Include="../../src/Models/HalvingQuestion.cs" Link="App/HalvingQuestion.cs" />
+        <Compile Include="../../src/Drawing/ItemLayout.cs" Link="App/ItemLayout.cs" />
+        <Compile Include="../../src/Drawing/InkDrawable.cs" Link="App/InkDrawable.cs" />
+        <Compile Include="../../src/Services/QuestionFactory.cs" Link="App/QuestionFactory.cs" />
+        <Compile Include="../../src/Services/HalvingRound.cs" Link="App/HalvingRound.cs" />
+    </ItemGroup>
+
+</Project>
