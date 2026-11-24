@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HalvingFun.Pages.HomePage"
+             NavigationPage.HasNavigationBar="False"
+             Title="Halving Fun">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="22,32,22,24" Spacing="16" VerticalOptions="Center">
+
+            <Border WidthRequest="148"
+                    HeightRequest="148"
+                    BackgroundColor="{StaticResource White}"
+                    StrokeThickness="0"
+                    HorizontalOptions="Center">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="74" />
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="#26000000" Offset="0,8" Radius="18" />
+                </Border.Shadow>
+                <Image Source="pizza.png" Margin="18" Aspect="AspectFit" />
+            </Border>
+
+            <Label Text="Halving Fun" Style="{StaticResource PageTitle}" />
+            <Label Text="Half for you, half for me" Style="{StaticResource Subtitle}" />
+
+            <Border x:Name="CircleCard" Style="{StaticResource MenuCard}" Margin="0,8,0,0">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCircleHalfTapped" />
+                </Border.GestureRecognizers>
+                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                    <Border WidthRequest="64"
+                            HeightRequest="64"
+                            BackgroundColor="#E3F2FD"
+                            StrokeThickness="0"
+                            VerticalOptions="Center">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="18" />
+                        </Border.StrokeShape>
+                        <Image Source="apple.png" Margin="9" Aspect="AspectFit" />
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                        <Label Text="Circle Half"
+                               FontFamily="OpenSansSemibold"
+                               FontSize="23" />
+                        <Label Text="Ring half of the treats" Style="{StaticResource Hint}" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+
+            <Border x:Name="CutCard" Style="{StaticResource MenuCard}">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCutInHalfTapped" />
+                </Border.GestureRecognizers>
+                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                    <Border WidthRequest="64"
+                            HeightRequest="64"
+                            BackgroundColor="#FFF0E1"
+                            StrokeThickness="0"
+                            VerticalOptions="Center">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="18" />
+                        </Border.StrokeShape>
+                        <Image Source="toast.png" Margin="9" Aspect="AspectFit" />
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                        <Label Text="Cut in Half"
+                               FontFamily="OpenSansSemibold"
+                               FontSize="23" />
+                        <Label Text="Draw a line down the middle" Style="{StaticResource Hint}" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+
+            <Border Style="{StaticResource StarBadge}" HorizontalOptions="Center" Margin="0,6,0,0">
+                <HorizontalStackLayout Spacing="8">
+                    <Label Text="⭐" FontSize="20" />
+                    <Label x:Name="StarsLabel"
+                           Text="0"
+                           FontFamily="OpenSansSemibold"
+                           FontSize="20" />
+                    <Label Text="stars" FontSize="16" TextColor="{StaticResource Muted}" />
+                </HorizontalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource MenuCard}" Padding="18,10">
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Label Text="Spoken instructions"
+                               FontFamily="OpenSansSemibold"
+                               FontSize="16" />
+                        <Label Text="Reads every question out loud" Style="{StaticResource Hint}" />
+                    </VerticalStackLayout>
+                    <Switch x:Name="VoiceSwitch"
+                            Grid.Column="1"
+                            OnColor="{StaticResource Primary}"
+                            VerticalOptions="Center" />
+                </Grid>
+            </Border>
+
+            <Button x:Name="ResetButton"
+                    Text="Reset stars"
+                    FontSize="14"
+                    HeightRequest="36"
+                    BackgroundColor="Transparent"
+                    TextColor="{StaticResource Muted}"
+                    Clicked="OnResetTapped"
+                    HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

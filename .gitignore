@@ -424,3 +424,6 @@ FodyWeavers.xsd
 
 # Official VS Code C# Dev Kit Extension exclusion
 #*.lscache
+
+# Third party worksheet the artwork was taken from (not redistributed)
+eyfs_halving_and_sharing_worksheet.pdf
